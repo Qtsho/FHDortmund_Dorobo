@@ -1,3 +1,14 @@
+
+/*
+ * This source code is for the purpose of Introduction to Embedded Engineering Design
+ * FreeRTOS Library
+ * dorobo32 library
+ * Copyright
+ *
+ * Tien Quang Tran
+ * Tuan Duc Nguyen
+ * */
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include "dorobo32.h"
@@ -9,13 +20,17 @@
 #include "fft.h"
 #include "digital.h"
 #include <stdlib.h>
+
 static void read_Switch(void *pvParameters);
 static void read_Distance(void *pvParameters);
 static void read_IR(void *pvParameters);
 static void motor(void *pvParameters);
+
 void move(char c);
+
+
 int drive_motor(int m1,int m2,int m3);
-#define minDistance 20
+#define minDistance 15
 #define maxDistance 60
 #define maxSpeed 100
 #define accelerationInterval 3.8
@@ -186,7 +201,6 @@ static void motor(void *pvParameters)
 
 /* Drive motor with acceleration*/
 void move(char c){
-  //run = 1; // Test
   if(run == 1){
     switch (c){
     case 'l':
